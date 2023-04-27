@@ -211,7 +211,7 @@ window.addEventListener('DOMContentLoaded', () => {
     //         });
     //     });
 
-    axios.get('db.json/menu')
+    axios.get('project-foodcalc.netlify.app/menu')
         .then(data => {
             data.data.forEach(({img, altimg, title, descr, price}) => {
                 new MenuCard(img, altimg, title, descr, price, '.menu .container').render();
@@ -261,7 +261,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
             const json = JSON.stringify(Object.fromEntries(formData.entries()));
 
-            postData('db.json/requests', json)
+            postData('project-foodcalc.netlify.app/requests', json)
             .then(data => {
                     console.log(data);
                     showThanksModal(message.success);
@@ -301,7 +301,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     }
 
-    fetch('db.json/menu')
+    fetch('project-foodcalc.netlify.app/menu')
         .then(data => data.json())
         .then(res => console.log(res));
     
