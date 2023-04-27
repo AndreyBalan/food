@@ -211,7 +211,7 @@ window.addEventListener('DOMContentLoaded', () => {
     //         });
     //     });
 
-    axios.get('https://project-foodcalc.netlify.app/menu')
+    axios.get('http://localhost:3000/menu')
         .then(data => {
             data.data.forEach(({img, altimg, title, descr, price}) => {
                 new MenuCard(img, altimg, title, descr, price, '.menu .container').render();
@@ -261,7 +261,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
             const json = JSON.stringify(Object.fromEntries(formData.entries()));
 
-            postData('https://project-foodcalc.netlify.app/requests', json)
+            postData('http://localhost:3000/requests', json)
             .then(data => {
                     console.log(data);
                     showThanksModal(message.success);
@@ -301,7 +301,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     }
 
-    fetch('https://project-foodcalc.netlify.app/menu')
+    fetch('http://localhost:3000/menu')
         .then(data => data.json())
         .then(res => console.log(res));
     
