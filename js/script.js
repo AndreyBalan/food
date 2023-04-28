@@ -204,7 +204,7 @@ window.addEventListener('DOMContentLoaded', () => {
         return await res.json();
     };
 
-    getResource('https://food-eight-gold.vercel.app/menu')
+    getResource('/db.json/menu')
         .then(data => {
             data.forEach(({img, altimg, title, descr, price}) => {
                 new MenuCard(img, altimg, title, descr, price, '.menu .container').render();
@@ -261,7 +261,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
             const json = JSON.stringify(Object.fromEntries(formData.entries()));
 
-            postData('https://food-eight-gold.vercel.app/requests', json)
+            postData('/db.json/requests', json)
             .then(data => {
                     console.log(data);
                     showThanksModal(message.success);
@@ -301,7 +301,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     }
 
-    fetch('https://food-eight-gold.vercel.app/menu')
+    fetch('/db.json/menu')
         .then(data => data.json())
         .then(res => console.log(res));
     
