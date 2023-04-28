@@ -204,19 +204,19 @@ window.addEventListener('DOMContentLoaded', () => {
         return await res.json();
     };
 
-    // getResource('http://localhost:3000/menu')
-    //     .then(data => {
-    //         data.forEach(({img, altimg, title, descr, price}) => {
-    //             new MenuCard(img, altimg, title, descr, price, '.menu .container').render();
-    //         });
-    //     });
-
-    axios.get('http://localhost:3000/menu')
+    getResource('https://food-eight-gold.vercel.app/menu')
         .then(data => {
-            data.data.forEach(({img, altimg, title, descr, price}) => {
+            data.forEach(({img, altimg, title, descr, price}) => {
                 new MenuCard(img, altimg, title, descr, price, '.menu .container').render();
             });
         });
+
+    // axios.get('http://localhost:3000/menu')
+    //     .then(data => {
+    //         data.data.forEach(({img, altimg, title, descr, price}) => {
+    //             new MenuCard(img, altimg, title, descr, price, '.menu .container').render();
+    //         });
+    //     });
 
     // Forms
 
@@ -261,7 +261,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
             const json = JSON.stringify(Object.fromEntries(formData.entries()));
 
-            postData('http://localhost:3000/requests', json)
+            postData('https://food-eight-gold.vercel.app/requests', json)
             .then(data => {
                     console.log(data);
                     showThanksModal(message.success);
@@ -301,7 +301,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     }
 
-    fetch('http://localhost:3000/menu')
+    fetch('https://food-eight-gold.vercel.app/menu')
         .then(data => data.json())
         .then(res => console.log(res));
     
