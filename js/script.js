@@ -204,12 +204,14 @@ window.addEventListener('DOMContentLoaded', () => {
         return await res.json();
     };
 
-    getResource('/menu')
-        .then(data => {
-            data.forEach(({img, altimg, title, descr, price}) => {
-                new MenuCard(img, altimg, title, descr, price, '.menu .container').render();
-            });
-        });
+    // uncomment in real hosting
+
+    // getResource('http://localhost:3000/menu')
+    //     .then(data => {
+    //         data.forEach(({img, altimg, title, descr, price}) => {
+    //             new MenuCard(img, altimg, title, descr, price, '.menu .container').render();
+    //         });
+    // });
 
     // axios.get('http://localhost:3000/menu')
     //     .then(data => {
@@ -260,19 +262,21 @@ window.addEventListener('DOMContentLoaded', () => {
             const formData = new FormData(form);
 
             const json = JSON.stringify(Object.fromEntries(formData.entries()));
+            
+            // uncomment in real hosting
 
-            postData('/requests', json)
-            .then(data => {
-                    console.log(data);
-                    showThanksModal(message.success);
-                    statusMessage.remove();
-            })
-            .catch(() => {
-                showThanksModal(message.failure);
-            })
-            .finally(() => {
-                form.reset();
-            });
+            // postData('http://localhost:3000/requests', json)
+            // .then(data => {
+            //         console.log(data);
+            //         showThanksModal(message.success);
+            //         statusMessage.remove();
+            // })
+            // .catch(() => {
+            //     showThanksModal(message.failure);
+            // })
+            // .finally(() => {
+            //     form.reset();
+            // });
         });
     }
 
@@ -301,9 +305,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
     }
 
-    fetch('/menu')
-        .then(data => data.json())
-        .then(res => console.log(res));
+    // uncomment in real hosting
+
+    // fetch('http://localhost:3000/menu')
+    //     .then(data => data.json())
+    //     .then(res => console.log(res));
     
 
     // slider
